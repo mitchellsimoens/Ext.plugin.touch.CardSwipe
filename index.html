@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Ext.plugin.touch.CardSwipe</title>
+
+<!--		<link rel="stylesheet" href="http://st/resources/css/sencha-touch.css" type="text/css">
+		<script type="text/javascript" src="http://st/sencha-touch-debug.js"></script>-->
+		<link rel="stylesheet" href="../sencha-touch-1.1.0/resources/css/sencha-touch.css" type="text/css">
+		<script type="text/javascript" src="../sencha-touch-1.1.0/sencha-touch-debug.js"></script>
+
+		<script type="text/javascript" src="Ext.plugin.touch.CardSwipe.js"></script>
+
+		<script type="text/javascript">
+Ext.setup({
+	onReady : function() {
+		var goBack = function() {
+			panel.layout.prev({ type : "slide", reverse : true }, true);
+		};
+
+		var goForward = function() {
+			panel.layout.next({ type : "slide" }, true);
+		};
+
+		var panel = new Ext.Panel({
+			fullscreen : true,
+			layout     : "card",
+			cardSwitchAnimation : "slide",
+			dockedItems : {
+				xtype : "toolbar",
+				dock  : "bottom",
+				items : [
+					{ text : "Back",    ui : "back",    handler : goBack    },
+					{ xtype : "spacer"                                      },
+					{ text : "Forward", ui : "forward", handler : goForward }
+				]
+			},
+			plugins: [ { ptype : "cardswipe" } ],
+			items    : [
+				{ html : "One" },
+				{ html : "Two" },
+				{ html : "Three" }
+			]
+		});
+	}
+});
+		</script>
+    </head>
+    <body>
+    </body>
+</html>
